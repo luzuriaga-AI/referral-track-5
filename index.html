@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedSpeak Referral Program</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .progress {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .unlocked {
+            color: green;
+            font-size: 24px;
+            display: none;
+        }
+        .invite-link {
+            margin-top: 20px;
+            padding: 15px;
+            font-size: 18px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .footer {
+            margin-top: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Habla inglés en 31 días GRATIS</h1>
+    <p>Invita a 3 amigos y desbloquea tu acceso al curso sin pagar nada</p>
+    <p class="progress">Progreso: <span id="count">0</span>/3</p>
+    <p class="unlocked">🎉 ¡Felicidades! Has desbloqueado el curso gratis. 🎉</p>
+    <button class="invite-link" onclick="redirectToSpeedSpeak()">Copiar mi link de invitación</button>
+    
+    <p class="footer">SpeedSpeak®</p>
+    
+    <script>
+        let referralCount = localStorage.getItem("referralCount") || 0;
+        document.getElementById("count").innerText = referralCount;
+        
+        function updateCount(newCount) {
+            referralCount = newCount;
+            localStorage.setItem("referralCount", newCount);
+            document.getElementById("count").innerText = newCount;
+            if (newCount >= 3) {
+                document.querySelector(".unlocked").style.display = "block";
+            }
+        }
+        
+        function redirectToSpeedSpeak() {
+            window.location.href = "https://wa.me/34611407128";
+        }
+    </script>
+</body>
+</html>
